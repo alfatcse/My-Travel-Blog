@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getVideos } from "./tagsAPI";
+import { getTags } from "./tagsAPI";
 
 const initialState = {
   tags: [],
@@ -8,7 +8,7 @@ const initialState = {
   error: "",
 };
 export const fetchTags = createAsyncThunk("tags/fetchTags", async () => {
-  const tags = await getVideos();
+  const tags = await getTags();
   return tags;
 });
 const tagsSlice = createSlice({
