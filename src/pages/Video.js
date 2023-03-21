@@ -16,7 +16,7 @@ const Video = () => {
   useEffect(() => {
     dispatch(fetchVideo(videoId));
   }, [dispatch, videoId]);
-  const {link,title,id}=video||{};
+  const {link,title,id,tags}=video||{};
   let content = null;
   if (isLoading) {
     content = <Loading></Loading>;
@@ -33,7 +33,7 @@ const Video = () => {
       <VideoPlayer link={link} title={title}></VideoPlayer>
       <VideoDescription id={id} video={video}></VideoDescription>
     </div>
-    <RelatedVedioList></RelatedVedioList>
+    <RelatedVedioList currentVideoId={id} tags={tags}></RelatedVedioList>
   </div>
   }
   return (
